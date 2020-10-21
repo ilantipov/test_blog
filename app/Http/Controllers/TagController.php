@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Tag;
 
 class TagController extends Controller
 {
@@ -14,11 +15,25 @@ class TagController extends Controller
 
     public function store(Request $request)
     {
-        die('here');
         $this->middleware('auth');
-        return view('tags.create');
+        $this->validate($request, [
+            'name' => 'required|max:10',
+        ]);
 
+        $tag = new Tag;
+        $tag->name = $request->name;
+        $tag->save();
 
-
+        return redirect('/tags');
     }
+
+    public function index(Request $request)
+    {
+        return view('tags.index', [
+            'tags' => Tag::all(),
+        ]);
+        return view('tags.index');
+    }
+
+
 }

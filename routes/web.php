@@ -30,14 +30,18 @@ Route::get('/tag','TagController@create');
 Route::post('/tag','TagController@store');
 
 
-//Auth::routes();
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+//Категории
+Route::get('/categories','CategoryController@index');
+Route::get('/category','CategoryController@create');
+Route::get('/category/{category}','CategoryController@edit');
+Route::post('/category','CategoryController@store');
+Route::delete('/category/{category}', 'CategoryController@destroy');
 
-// Registration routes...
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'Auth\AuthController@postRegister');
+//Затычка что не реализовано
+Route::get('/dummy','DummyController@index');
+
+Auth::routes();
+
 
 
 //  Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

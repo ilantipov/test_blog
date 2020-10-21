@@ -54,31 +54,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">На главную <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/">На главную <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Статьи</a>
+                            <a class="nav-link" href="{{ url('articles') }}">Статьи</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Категории</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
+                            <a class="nav-link" href="{{ url('categories') }}">Категории</a>
                         </li>
 
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <form class="form-inline my-2 my-lg-0" action="{{ url('dummy') }}">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">поиск</button>
                     </form>
                 </div>
             </nav>
@@ -92,72 +80,30 @@
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="#">Home</a>
+                        <a href="#">крошки</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="#">Library</a>
+                        <a href="#">крошки</a>
                     </li>
                     <li class="breadcrumb-item active">
-                        Data
+                        крошки
                     </li>
                 </ol>
             </nav>
             <div>
                 @yield('message')
             </div>
-            <div class="jumbotron">
-                <p>
+            <div class="bg-light">
+                <div class="col-md-12">
                 @yield('content')
-                </p>
+                </div>
 
-{{--                <h2>--}}
-{{--                    Заголовок статьи--}}
-{{--                </h2>--}}
-{{--                <p>--}}
-{{--                    Наполнение статьи--}}
-{{--                </p>--}}
-{{--                <p>--}}
-{{--                    <a class="" href="#">Далее</a>--}}
-{{--                </p>--}}
             </div>
-            <ul class="nav nav-pills">
-                <li class="nav-item">
-                    <a class="nav-link btn btn-primary" href="#">Home <span class="badge badge-light">42</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">More <span class="badge badge-secondary">16</span></a>
-                </li>
-            </ul>
-            <nav class="pagination-sm">
-                <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#">Previous</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">4</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">5</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
         </div>
     </div>
     <div class="row justify-content-md-center">
         <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-            Build v{{ Illuminate\Foundation\Application::VERSION }} ilantipov 2021
+            Build v{{ Illuminate\Foundation\Application::VERSION }} for involta 2021
         </div>
     </div>
 </div>

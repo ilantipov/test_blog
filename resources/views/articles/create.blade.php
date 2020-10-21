@@ -5,6 +5,7 @@
     <h3>Создание публикации</h3>
     @include('common.errors')
     <form action="{{ url('article') }}" method="POST" class="form-horizontal">
+        {!! csrf_field() !!}
         <div class="form-group row">
             <lebel for="article_title" class="col-md-2">Заголовок статьи</lebel>
             <div class="col-md-10">

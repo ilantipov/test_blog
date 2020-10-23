@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        <!-- resources/views/articles/index.blade.php -->
+
+
+        <!doctype html>
+        <html lang="en">
+        <head>
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+
+            <!-- Bootstrap CSS -->
+            <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+                  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+                  rel="stylesheet">
+
+            <title>My test Laravel blog</title>
+        </head>
+<body>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script crossorigin="anonymous"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<div class="container-fluid">
+    <div class="row align-items-start">
+        <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a href="http://homestead.test">
+                    <svg fill="none" height="33" viewBox="0 0 123 33" width="123" xmlns="http://www.w3.org/2000/svg">
+                        <g opacity="0.0982608">
+                            <path clip-rule="evenodd" d="M0 32H7V10H0V32Z" fill="#070808" fill-rule="evenodd"></path>
+                            <path clip-rule="evenodd" d="M42.5378 27.0282L38.4187 10H32L38.6421 32H46.3104L53 10H46.5565L42.5378 27.0282Z"
+                                  fill="#070808"
+                                  fill-rule="evenodd"></path>
+                            <path clip-rule="evenodd" d="M64.4593 28.1328C61.8071 28.1328 60.4811 26.0769 60.4811 21.1258C60.4811 16.3005 61.8071 14.1605 64.4593 14.1605C67.1114 14.1605 68.4375 16.2166 68.4375 21.1677C68.4375 25.993 67.1114 28.1328 64.4593 28.1328ZM64.4593 9.29346C57.746 9.29346 53.6849 13.9927 53.6849 21.1258C53.6849 28.6362 57.7875 33 64.4593 33C71.1725 33 75.2336 28.3006 75.2336 21.1677C75.2336 13.6571 71.1725 9.29346 64.4593 9.29346Z"
+                                  fill="#070808"
+                                  fill-rule="evenodd"></path>
+                            <mask id="mask0" height="8" mask-type="alpha" maskUnits="userSpaceOnUse" width="8" x="0"
+                                  y="0">
+                                <path clip-rule="evenodd" d="M0 0.0134277H7.19177V7.29523H0V0.0134277Z"
+                                      fill="white"
+                                      fill-rule="evenodd"></path>
+                            </mask>
+                            <g mask="url(#mask0)">
+                                <path clip-rule="evenodd" d="M3.59588 0.0133057C1.60993 0.0133057 0 1.6434 0 3.65422C0 5.66505 1.60993 7.29514 3.59588 7.29514C5.58184 7.29514 7.19177 5.66505 7.19177 3.65422C7.19177 1.6434 5.58184 0.0133057 3.59588 0.0133057Z"
+                                      fill="#070808"
+                                      fill-rule="evenodd"></path>
+                            </g>
+                            <path clip-rule="evenodd" d="M24.0727 9.47807C23.1586 9.36381 22.281 9.29958 21.4399 9.27587C21.1155 9.27024 20.8036 9.26698 20.5045 9.26599C16.2845 9.29795 13.0801 10.3532 11.0801 11.2749L11.0569 13.243L11.0916 14.3758V32.2867H17.3194V14.0337C18.2607 13.5465 19.161 13.4086 20.1197 13.3641V13.364C20.1197 13.364 20.281 13.3498 20.5215 13.3506C20.673 13.3479 20.817 13.354 20.9538 13.3685C21.2806 13.3951 21.6508 13.4572 21.9615 13.592C22.7095 13.9166 23.1369 14.2412 23.4041 15.0526C23.4041 15.0526 23.4575 15.3231 23.4575 15.5395C23.4575 15.6204 23.511 16.5466 23.511 17.6755C23.5201 17.9308 23.5235 18.185 23.5235 18.4341V32.2867H30.071V16.0067C29.9672 11.4887 26.7642 9.95035 24.0727 9.47807Z"
+                                  fill="#070808"
+                                  fill-rule="evenodd"></path>
+                            <path clip-rule="evenodd" d="M114.917 22.2329H116.372V28.8064C115.894 28.8477 114.848 28.9174 113.055 28.6801C111.459 28.4691 110.551 27.4953 110.546 25.5019C110.539 23.1023 111.937 22.2329 114.917 22.2329ZM122.997 31.336C122.987 29.9776 122.947 27.3673 122.947 25.879V16.8445C123.16 11.6572 120.215 9.28918 113.841 9.28918C111.357 9.28918 108.941 9.71769 106.029 10.6003L107.054 14.5337C109.876 13.9592 111.188 13.8446 112.593 13.7593C115.071 13.6087 116.458 14.8839 116.359 16.339L116.372 18.587H114.296C107.633 18.587 103.989 21.2272 103.99 26.0886C103.991 28.759 105.325 30.8379 107.606 31.8614C108.791 32.4468 110.568 32.504 113.169 32.5115C119.234 32.5289 122.619 32.5335 122.971 32.4843L123 31.9825V31.9381L122.997 31.336Z"
+                                  fill="#070808"
+                                  fill-rule="evenodd"></path>
+                            <path clip-rule="evenodd" d="M78.2885 32.549H84.8299V0.828979L78.2885 1.47302V32.549Z"
+                                  fill="#070808" fill-rule="evenodd"></path>
+                            <path clip-rule="evenodd" d="M102.096 28.1284C101.294 28.2401 101.741 28.2047 100.951 28.2718C98.3698 28.491 97.6497 28.1524 97.3291 27.6114C97.0698 27.1738 97.0293 26.74 96.9561 25.8133C96.9387 25.6594 96.9287 25.5048 96.9283 25.3515C96.9281 25.2845 96.9281 25.2175 96.9279 25.1505C96.9266 25.0552 96.9263 24.9555 96.927 24.8508C96.927 24.8497 96.9273 24.8487 96.9273 24.8476C96.9192 21.5076 96.9202 18.1677 96.9196 14.8276L96.92 14.5418H102.771L102.771 10.0478H96.9022L96.9044 9.77153V2.66235C94.8545 3.07762 92.5237 3.64603 90.4862 4.05868V9.71546L90.488 10.0478H87.6454V14.3593C87.6506 14.4438 87.6563 14.5012 87.6623 14.5245C87.7568 14.5306 87.8605 14.543 87.9641 14.5432C88.6996 14.545 89.4351 14.5435 90.1706 14.5449C90.273 14.5451 90.3754 14.5553 90.498 14.5621V14.9098C90.498 17.7515 90.4972 20.5931 90.4987 23.4347C90.4991 24.3067 90.4877 25.1794 90.5142 26.0507C90.5464 27.1127 90.4873 28.3784 90.8659 29.3771C91.5088 31.0736 92.9837 32.1133 94.56 32.5585C95.1679 32.7301 96.1567 32.8985 96.9234 32.9254C97.8821 32.959 98.7309 32.941 99.6649 32.8598C100.784 32.7626 101.853 32.4723 103.038 32.1193C102.731 30.7225 102.434 29.5448 102.096 28.1284Z"
+                                  fill="#070808"
+                                  fill-rule="evenodd"></path>
+                        </g>
+                    </svg>
+                </a>
+                <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                        class="navbar-toggler" data-target="#navbarSupportedContent"
+                        data-toggle="collapse" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://homestead.test/articles">Статьи</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
+                               data-toggle="dropdown" href="#" role="button">
+                                Категории
+                            </a>
+                            <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+                                <a class="dropdown-item" href="http://homestead.test/articles/category1">Тестовая
+                                    категория</a>
+                                <a class="dropdown-item" href="http://homestead.test/articles/category2">Тестовая
+                                    категория 2</a>
+                                <a class="dropdown-item" href="http://homestead.test/articles/category3">Тестовая
+                                    категория 3</a>
+                            </div>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://homestead.test/logout">Выйти</a>
+
+                    </ul>
+                    <form action="http://homestead.test/dummy" class="form-inline my-2 my-lg-0">
+                        <input aria-label="search" class="form-control mr-sm-2" placeholder="Поиск" type="search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">поиск</button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="container">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
+                           data-toggle="dropdown" href="#" role="button">
+                            Статьи
+                        </a>
+                        <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+                            <a class="dropdown-item" href="http://homestead.test/articles">Просмотр статей</a>
+                            <a class="dropdown-item" href="http://homestead.test/article">Добавить статью</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
+                           data-toggle="dropdown" href="#" role="button">
+                            Категории
+                        </a>
+                        <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+                            <a class="dropdown-item" href="http://homestead.test/categories">Просмотр категорий</a>
+                            <a class="dropdown-item" href="http://homestead.test/categoriy">Добавить категорию</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://homestead.test/comments">Комментарии</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://homestead.test/logout">Выйти</a>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class=" col-md-10 ">
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="#">крошки</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#">крошки</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        крошки
+                    </li>
+                </ol>
+            </nav>
+            <div>
+            </div>
+            <div class="bg-light">
+                <div class="col-md-12">
+                    <a class="nav-link" href="http://homestead.test/article">Добавить статью</a>
+                    <h3>Просмотр статей</h3>
+                    <div class="row">
+                        ;
+                    </div>
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/pqpo1smbt9vJiEhGUsI4g7gNnpvHEvylbBcaedlw.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/pqpo1smbt9vJiEhGUsI4g7gNnpvHEvylbBcaedlw.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article1">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 16:18:20</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/cNn5mxXO8OM3pqLhA0jE0i9GME9MyZ8rySoaPZG2.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/cNn5mxXO8OM3pqLhA0jE0i9GME9MyZ8rySoaPZG2.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article2">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 16:21:20</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/f8WntzVoKoQj350Co1LvBT2AgUiqaJl2vOxzmlOk.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/f8WntzVoKoQj350Co1LvBT2AgUiqaJl2vOxzmlOk.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article3">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 16:24:16</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/VWknRXQc1K0zIRL9fNis8PYNN6m1FeTw1Sscdc2t.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/VWknRXQc1K0zIRL9fNis8PYNN6m1FeTw1Sscdc2t.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article4">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 16:24:43</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/FuDu3DrqcMr0PCDwX75LSa8HSgP4uzupZIVZHwlg.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/FuDu3DrqcMr0PCDwX75LSa8HSgP4uzupZIVZHwlg.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article5">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 16:26:07</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/2e4UrIIUQNNmPITAtvqUpCpoTZUVhNgsl79QtKlr.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/2e4UrIIUQNNmPITAtvqUpCpoTZUVhNgsl79QtKlr.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article6">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 16:26:42</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/3WHKeGlENDlas2vaubU80tIfRSu6uercswc58taA.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/3WHKeGlENDlas2vaubU80tIfRSu6uercswc58taA.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article7">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 16:27:16</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/rFSmpBMsh2xyKzw22jqxXxQE3UdDe0cIvDdknV6U.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/rFSmpBMsh2xyKzw22jqxXxQE3UdDe0cIvDdknV6U.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article8">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 16:27:28</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/QF9y0pHdQrfFtWjgQlsiX3RtGYLPDxtz2IodczkU.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/QF9y0pHdQrfFtWjgQlsiX3RtGYLPDxtz2IodczkU.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article9">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 16:32:00</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/umc0R8TSLDXJCPaMtCIm1yArnZA9wyEu7hhwSMP8.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/umc0R8TSLDXJCPaMtCIm1yArnZA9wyEu7hhwSMP8.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article10">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 16:33:04</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/YINp7zBdPQjEhd9KxFONqkWsnmKLKb0qaJ8yKmcO.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/YINp7zBdPQjEhd9KxFONqkWsnmKLKb0qaJ8yKmcO.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article11">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 16:52:01</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/54bla9A2UUmKu9BbeRw6d9XrqDTCcgmwIrlwypEt.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/54bla9A2UUmKu9BbeRw6d9XrqDTCcgmwIrlwypEt.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article12">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 16:53:40</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/xjSE1iyQbFbP38Xzx58ZUDtFIC5boCHWUWNE3ppi.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/xjSE1iyQbFbP38Xzx58ZUDtFIC5boCHWUWNE3ppi.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article13">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 17:01:11</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/5Dfp4OlFvVFA5E1FTmF78WSLPQOUln5t8JWVDXhn.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/5Dfp4OlFvVFA5E1FTmF78WSLPQOUln5t8JWVDXhn.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article14">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 17:01:37</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/H6KtyJsr2J0wY4VfzSB3dSkUUuQmkBLhOZF2LbxQ.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/H6KtyJsr2J0wY4VfzSB3dSkUUuQmkBLhOZF2LbxQ.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article15">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 17:01:52</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/PtKDds6LzuYWFBg1eaNvX5fLwVIbVR8xqa82dLV5.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/PtKDds6LzuYWFBg1eaNvX5fLwVIbVR8xqa82dLV5.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article16">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 17:03:27</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/su3qFms39RTm00baz7MK8DayqyKyrqUqrlSTEYXE.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/su3qFms39RTm00baz7MK8DayqyKyrqUqrlSTEYXE.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article17">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 17:07:16</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/zzrNgJclHca1WhvWSj3CXFxXiOv6dWy7U14Bt6Ak.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/zzrNgJclHca1WhvWSj3CXFxXiOv6dWy7U14Bt6Ak.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article18">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 17:09:24</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/xRPPYzCU9fUvtvBrFTDROHYufiqUIy8NWTvZcQx3.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/xRPPYzCU9fUvtvBrFTDROHYufiqUIy8NWTvZcQx3.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article19">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 17:09:40</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/wZVLbjbJBe1LOW3wPRyC3y8nHAFiP91M2vyFcwjR.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/wZVLbjbJBe1LOW3wPRyC3y8nHAFiP91M2vyFcwjR.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article20">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 17:14:11</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/IX1pPm5fVYdPfqOmVHJTlfHpSytB4UpfM4ggl3Zj.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/IX1pPm5fVYdPfqOmVHJTlfHpSytB4UpfM4ggl3Zj.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article21">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 17:17:08</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/97GZ3mBMYhdCqzcAn8NYwTpf2jAYjnDvLEivCSxP.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/97GZ3mBMYhdCqzcAn8NYwTpf2jAYjnDvLEivCSxP.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article22">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 17:18:57</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/jkVmfAsCekCl2prB6CgqCa6Xm4U4p6tQBQ8tBZVo.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/jkVmfAsCekCl2prB6CgqCa6Xm4U4p6tQBQ8tBZVo.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article23">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 17:30:57</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/8R9SzFq65aGk3baFZYI2z6JSdTQkmnmZkbNPiEEY.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/8R9SzFq65aGk3baFZYI2z6JSdTQkmnmZkbNPiEEY.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article24">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 17:33:12</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/5ZqoqhdH79cP6ZcAHmoP1PxjQYhxAJhZ8PObElcb.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/5ZqoqhdH79cP6ZcAHmoP1PxjQYhxAJhZ8PObElcb.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article25">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 17:34:30</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Илья Антипов</div>
+                            <img alt="Card image cap" class="card-img-top"
+                                 src="images/org2bNXP3QbZIgHN6LwoZ3viVgrL4MQcUCccPgW4.jpeg">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Подзаголовок</h5>
+                                <p class="card-text">
+                                    http://homestead.test/images/org2bNXP3QbZIgHN6LwoZ3viVgrL4MQcUCccPgW4.jpeg</p>
+                                <a class="card-link" href="http://homestead.test/article26">подробнее..
+                                    <span>15</span> <span class="oi oi-eye">10</span></a>
+                            </div>
+                            <div class="card-footer"><small>2020-10-22 17:36:22</small>
+                                <div style="float: right">
+                                    <svg class="bi bi-eye" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"
+                                              fill-rule="evenodd"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small></small>
+                                    <svg class="bi bi-hand-thumbs-up" fill="currentColor" height="0.85em" viewBox="0 0 16 16"
+                                         width="0.85em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"
+                                              fill-rule="evenodd"/>
+                                    </svg>
+                                    <small>0</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
+            Build v8.11.0 for involta 2021
+        </div>
+    </div>
+</div>
+</body>
+</html>
+</title>
+</head>
+<body>
+
+</body>
+</html>

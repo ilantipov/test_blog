@@ -9,7 +9,7 @@
     @if (count($categories) > 0)
         <!-- Список категорий -->
         <div class="">
-            @foreach ($categories->all() as $id=>$category)
+            @foreach ($categories->all() as $category)
                 <div class="row">
                     <div class="col-md-4">{{ $category->name }} (<a
                             href="{{ url('articles/category') }}/{{ $category->id }}">{{ $category->articles_count }}

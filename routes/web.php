@@ -23,14 +23,16 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 // Статьи
-Route::get('/articles/category/{category}','ArticleController@indexByCategory');
+Route::get('/articles/category/{id}','ArticleController@indexByCategory');
 Route::get('/articles','ArticleController@index');
-Route::get('/article','ArticleController@create');
-Route::post('/article','ArticleController@store');
+Route::get('/article/{id}','ArticleController@view');
+Route::get('/article/','ArticleController@create')->middleware('auth');
+Route::post('/article','ArticleController@store')->middleware('auth');
+
 // Теги
 Route::get('/tags','TagController@index');
-Route::get('/tag','TagController@create');
-Route::post('/tag','TagController@store');
+Route::get('/tag','TagController@create')->middleware('auth');
+Route::post('/tag','TagController@store')->middleware('auth');
 
 
 //Категории
@@ -39,6 +41,10 @@ Route::get('/category','CategoryController@create');
 Route::get('/category/{category}','CategoryController@edit');
 Route::post('/category','CategoryController@store');
 Route::delete('/category/{category}', 'CategoryController@destroy');
+
+Route::get('/comments','CommentController@index');
+Route::get('/comment','CommentController@create');
+
 
 //Затычка что не реализовано
 Route::get('/dummy','DummyController@index');

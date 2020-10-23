@@ -9,6 +9,6 @@ class ArticlePreviewController extends Controller
 {
         public function update(Request $request)
         {
-            return $request->file('preview')->store('images');
+            return $request->file('preview')->store('/public/images');
         }
 }

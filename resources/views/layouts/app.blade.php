@@ -8,6 +8,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .top-buffer { margin-top:20px; }
+    </style>
+
 
     <title>My test Laravel blog</title>
 </head>
@@ -27,7 +31,7 @@
     <div class="row align-items-start">
         <div class="col-md-12">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <svg width="123" height="33" viewBox="0 0 123 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <a href="{{ url('/') }}"><svg width="123" height="33" viewBox="0 0 123 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g opacity="0.0982608">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M0 32H7V10H0V32Z" fill="#070808"></path>
                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -57,7 +61,7 @@
                               d="M102.096 28.1284C101.294 28.2401 101.741 28.2047 100.951 28.2718C98.3698 28.491 97.6497 28.1524 97.3291 27.6114C97.0698 27.1738 97.0293 26.74 96.9561 25.8133C96.9387 25.6594 96.9287 25.5048 96.9283 25.3515C96.9281 25.2845 96.9281 25.2175 96.9279 25.1505C96.9266 25.0552 96.9263 24.9555 96.927 24.8508C96.927 24.8497 96.9273 24.8487 96.9273 24.8476C96.9192 21.5076 96.9202 18.1677 96.9196 14.8276L96.92 14.5418H102.771L102.771 10.0478H96.9022L96.9044 9.77153V2.66235C94.8545 3.07762 92.5237 3.64603 90.4862 4.05868V9.71546L90.488 10.0478H87.6454V14.3593C87.6506 14.4438 87.6563 14.5012 87.6623 14.5245C87.7568 14.5306 87.8605 14.543 87.9641 14.5432C88.6996 14.545 89.4351 14.5435 90.1706 14.5449C90.273 14.5451 90.3754 14.5553 90.498 14.5621V14.9098C90.498 17.7515 90.4972 20.5931 90.4987 23.4347C90.4991 24.3067 90.4877 25.1794 90.5142 26.0507C90.5464 27.1127 90.4873 28.3784 90.8659 29.3771C91.5088 31.0736 92.9837 32.1133 94.56 32.5585C95.1679 32.7301 96.1567 32.8985 96.9234 32.9254C97.8821 32.959 98.7309 32.941 99.6649 32.8598C100.784 32.7626 101.853 32.4723 103.038 32.1193C102.731 30.7225 102.434 29.5448 102.096 28.1284Z"
                               fill="#070808"></path>
                     </g>
-                </svg>
+                </svg></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -66,14 +70,18 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/">На главную <span class="sr-only">(current)</span></a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('articles') }}">Статьи</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('categories') }}">Категории</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Категории
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @foreach ($nav_categories->all() as $category)
+                                <a class="dropdown-item" href="{{url('/articles/category/')}}{{$category->id}}">{{$category->name}}</a>
+                                @endforeach
+                            </div>
 
                         </li>
                         <li class="nav-item">
@@ -93,20 +101,49 @@
         </div>
     </div>
     <div class="row">
+        @if (Auth::check())
         <div class="col-md-2">
-            left login menu
+            <div class="container">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Статьи
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ url('articles') }}">Просмотр статей</a>
+                        <a class="dropdown-item" href="{{ url('article') }}">Добавить статью</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Категории
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ url('categories') }}">Просмотр категорий</a>
+                        <a class="dropdown-item" href="{{ url('categoriy') }}">Добавить категорию</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                       <a class="nav-link" href="{{ url('comments') }}">Комментарии</a>
+                </li>
+
+                <li class="nav-item">
+                    @if (Auth::check())
+                        <a class="nav-link" href="{{ route('logout') }}">Выйти</a>
+
+                    @else
+                        <a class="nav-link" href="{{ route('login') }}">Войти</a>
+                    @endif
+                </li>
+            </ul>
+            </div>
         </div>
-        <div class="col-md-10">
+        @endif
+        <div class="@if (Auth::check()) col-md-10 @else col-md-12 @endif">
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="#">крошки</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a href="#">крошки</a>
-                    </li>
-                    <li class="breadcrumb-item active">
-                        крошки
+                        <a href="#">Текущая категория</a>
                     </li>
                 </ol>
             </nav>

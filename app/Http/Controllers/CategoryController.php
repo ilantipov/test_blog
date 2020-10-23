@@ -33,10 +33,16 @@ class CategoryController extends Controller
         return redirect('/categories');
     }
 
+
+    private function getCategoryArticlesWithTotals()
+    {
+        $Category = new Category();
+        return $Category->withCount('articles')->get();
+    }
     public function index(Request $request)
     {
         return view('categories.index', [
-            'categories' => Category::all(),
+            'categories' => $this->getCategoryArticlesWithTotals()
         ]);
     }
 
@@ -49,4 +55,6 @@ class CategoryController extends Controller
     {
         return view('dummy.index');
     }
+
+
 }

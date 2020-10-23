@@ -27,6 +27,11 @@ class TagController extends Controller
         return redirect('/tags');
     }
 
+    private function getTagByName($tagName)
+    {
+        return Tag::where('name', $tagName)->value('id');
+    }
+
     public function index(Request $request)
     {
         return view('tags.index', [
@@ -35,5 +40,28 @@ class TagController extends Controller
         return view('tags.index');
     }
 
+    public function parseFromString(Request $request)
+    {
+        $tagsParsed = [];
+        if(!empty($request->tags)){
+            $tagsArray = explode(",", $request->tags);
+            $tagsArray = array_map('trim', $tagsArray);
+            foreach ($tagsArray as $tagName){
+                if(empty($tagName)){
+                    continue;
+                }
+
+                $currentTag = $this->getTagByName($tagName);
+                if(!$currentTag){
+                    $Tag = new Tag;
+                    $Tag->name = $tagName;
+                    $Tag->save();
+                    $currentTag = $Tag->id;
+                }
+                $tagsParsed[] = $currentTag;
+            }
+        }
+        return $tagsParsed;
+    }
 
 }

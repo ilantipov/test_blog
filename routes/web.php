@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::pattern('id', '[0-9]+');
+
 Route::get('/', function () {
     //return view('welcome');
     return view('layouts.app');
@@ -21,6 +23,7 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 // Статьи
+Route::get('/articles/category/{category}','ArticleController@indexByCategory');
 Route::get('/articles','ArticleController@index');
 Route::get('/article','ArticleController@create');
 Route::post('/article','ArticleController@store');
@@ -45,3 +48,7 @@ Auth::routes();
 
 
 //  Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

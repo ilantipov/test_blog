@@ -11,22 +11,23 @@
     <style>
         .top-buffer { margin-top:20px; }
     </style>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>My test Laravel blog</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity=""
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script src="{!! url('js/summernote_editor_settings.js') !!}"></script>
 </head>
 <body>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+
+
 <div class="container-fluid">
     <div class="row align-items-start">
         <div class="col-md-12">
@@ -79,17 +80,34 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 @foreach ($nav_categories->all() as $category)
-                                <a class="dropdown-item" href="{{url('/articles/category/')}}{{$category->id}}">{{$category->name}}</a>
+                                <a class="dropdown-item" href="{{url('/articles/category')}}/{{$category->id}}">{{$category->name}}</a>
                                 @endforeach
                             </div>
 
                         </li>
                         <li class="nav-item">
-                            @if (Auth::check())
-                                <a class="nav-link" href="{{ route('logout') }}">Выйти</a>
-
-                            @else
-                                <a class="nav-link" href="{{ route('login') }}">Войти</a>
+                            @if (!Auth::check())
+                                <form method="POST" action="{{ route('login') }}" class="form-inline">
+                                    @csrf
+                                    <div class="form-group mb-2">
+                                        <input type="text" class="form-control"  type="email" name="email" placeholder="email@example.com">
+                                    </div>
+                                    <div class="form-group mx-sm-3 mb-2">
+                                        <input type="password" class="form-control" type="password" name="password" required placeholder="Пароль">
+                                    </div>
+                                    <div class="form-group mx-sm-3 mb-2">
+                                        <input id="remember_me" type="checkbox" class="form-checkbox" name="remember">
+                                        <span class="ml-2 text-sm text-gray-600">запомнить</span>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary mb-2">Войти</button>
+                                    @if (Route::has('password.request'))
+                                        <div>
+                                        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                                            Забыли пароль?
+                                        </a>
+                                        </div>
+                                    @endif
+                                </form>
                             @endif
                     </ul>
                     <form class="form-inline my-2 my-lg-0" action="{{ url('dummy') }}">
@@ -120,7 +138,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ url('categories') }}">Просмотр категорий</a>
-                        <a class="dropdown-item" href="{{ url('categoriy') }}">Добавить категорию</a>
+                        <a class="dropdown-item" href="{{ url('category') }}">Добавить категорию</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -129,8 +147,12 @@
 
                 <li class="nav-item">
                     @if (Auth::check())
-                        <a class="nav-link" href="{{ route('logout') }}">Выйти</a>
-
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="btn btn-sm">
+                                Выйти
+                            </button>
+                        </form>
                     @else
                         <a class="nav-link" href="{{ route('login') }}">Войти</a>
                     @endif
@@ -140,17 +162,25 @@
         </div>
         @endif
         <div class="@if (Auth::check()) col-md-10 @else col-md-12 @endif">
+            @isset($current_category)
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="#">Текущая категория</a>
+                        <a href="#">{{$current_category}}</a>
                     </li>
                 </ol>
             </nav>
+            @endisset
             <div>
                 @yield('message')
             </div>
-            <div class="bg-light">
+            <div class="col-md-12 bg-light">
+                @include('common.errors')
+                @if(Session::has('flash_message'))
+                    <div class="alert alert-success top-buffer">
+                        {{ Session::get('flash_message') }}
+                    </div>
+                @endif
                 <div class="col-md-12">
                     @yield('content')
                 </div>

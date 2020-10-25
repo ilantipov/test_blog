@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
+use App\Models\Like;
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\User;
+
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use PhpParser\Lexer\TokenEmulator\FlexibleDocStringEmulator;
+
 
 class ArticleController extends Controller
 {
@@ -21,46 +23,94 @@ class ArticleController extends Controller
     {
         $Articles = new Article();
 
-//        DB::connection()->enableQueryLog();
-//
-//        $data = $Articles->categories();//->withPivot('category_id' , '=', $categoryId);
-//
+        $Category = new Category();
+        $Category->findOrFail($categoryId);
 
-        //dd(DB::getQueryLog()); // Show results of log
+        return view('layouts.articles.index', [
+            'articles' => $Articles->whereHas('categories', function ($q) use ($categoryId) {
+                $q->where('categories.id', '=', $categoryId);
+            })->with('user', 'tags')
+                ->whereNotNull('sent_at')
+                ->paginate(5),
+            'news' => $this->getLatestNews()
 
-
-
-        return view('layouts.articles.news.index',[
-            'articles' =>$Articles->all(),
-
-        ]);
+        ])->with('current_category', $Category->where('id', '=', $categoryId)->first()->name);
 
     }
+
+    public function indexByUser(Request $request, $userId)
+    {
+        $Articles = new Article();
+
+        User::findOrFail($userId);
+
+        return view('layouts.articles.index', [
+            'articles' => $Articles->whereHas('user', function ($q) use ($userId) {
+                $q->where('users.id', '=', $userId);
+            })->with('categories', 'tags')
+                ->whereNotNull('sent_at')
+                ->paginate(5),
+            'news' => $this->getLatestNews()
+
+        ]);
+    }
+
+    private function switchNullableDateState($id, $stateName)
+    {
+        $Article = new Article();
+
+        $articleObject = $Article->findOrFail($id);
+        if($articleObject->publishedAt){
+            $articleObject->$stateName = null;
+        }
+        else{
+            $articleObject->$stateName = now();
+        }
+        $articleObject->save();
+    }
+
+    public function switchPublishedSate(Request $request, $id)
+    {
+         $this->switchNullableDateState($id, 'published_at');
+            return back()->withInput();
+
+    }
+
+    public function switchTrashedState(Request $request, $id)
+    {
+        $this->switchNullableDateState($id, 'deleted_at');
+        return back()->withInput();
+    }
+
+    public function indexAdmin(Request $request)
+    {
+        $Articles = new Article();
+        return view('layouts.articles.indexAdmin', [
+            'articles' => $Articles->with('categories', 'tags', 'user')
+                ->orderBy('articles.created_at', 'desc')
+                ->withTrashed()
+                ->paginate(25),
+
+        ]);
+    }
+
     public function index(Request $request)
     {
-
         $Articles = new Article();
-        // TODO Реализовать постраниый вывод с категориями и тегами
-        /*
-        DB::connection()->enableQueryLog();
-        //$Articles->all();
-        //$data =
-        $ids = $Articles->all()->values('id');
-        $data = $Articles->find(1)->categories();
-        dd(compact($data));
-        dd(DB::getQueryLog());
-*/
-        return view('layouts.articles.index', [
-            'articles'  => $Articles->with('categories')->get(),
-            'news'  => $this->getLatestNews()
+
+        return view('layouts.articles.indexAdmin', [
+            'articles' => $Articles->with('categories', 'tags', 'user')
+                ->orderBy('articles.created_at', 'desc')
+                ->whereNotNull('articles.published_at')
+                ->paginate(5),
         ]);
     }
 
     public function create(Request $request)
     {
         $this->middleware('auth');
-        return view('layouts.articles.create',[
-                'categories' => Category::all()->sortBy('name'),
+        return view('layouts.articles.create', [
+            'categories' => Category::all()->sortBy('name'),
         ]);
     }
 
@@ -71,7 +121,7 @@ class ArticleController extends Controller
             'name' => 'required|max:255',
             'name_short' => 'required|max:100',
             'body' => 'required|max:5000',
-            'preview'   => 'image|nullable|max:10240'
+            'preview' => 'image|required|max:10240'
 
         ]);
 
@@ -85,7 +135,7 @@ class ArticleController extends Controller
 
 
         $ArticlePreviewController = new ArticlePreviewController();
-        $Article->preview   = $ArticlePreviewController->update($request);
+        $Article->preview = $ArticlePreviewController->update($request);
 
         $Article->save();
 
@@ -94,7 +144,7 @@ class ArticleController extends Controller
         $TagController = new TagController();
         $tagsParsed = $TagController->parseFromString($request);
 
-        if (!empty($tagsParsed)){
+        if (!empty($tagsParsed)) {
             $Article->tags()->sync($tagsParsed);
         }
 
@@ -105,30 +155,36 @@ class ArticleController extends Controller
     public function view(Request $request, $id)
     {
         $Article = new Article();
-        $articleObject = $Article->find($id);
-        if(!$articleObject) {
-            return abort(404);
-        }
-        $Article->find($id)->increment('viewed');
-        //dd($articleObject->get());
-        /*DB::connection()->enableQueryLog();
-        $qwe = $articleObject->find($id)->get();
-        dd( $articleObject->find($id)->get());
-        dd(DB::getQueryLog());*/
-        return view('layouts.articles.view',[
-            'articles' => $articleObject->where('id','=', $id)->with('categories')->with('tags')->get(),
-            'news'  => $this->getLatestNews()
+        $articleInstance = $Article->findOrFail($id);
+
+        $articleInstance->increment('viewed');
+
+        return view('layouts.articles.view', [
+            'articles' => $articleInstance->where('id', '=', $id)->with('categories', 'tags', 'user')->get(),
+            'news' => $this->getLatestNews(),
+            'comments' => $articleInstance->comments()->whereNotNull('moderated_at')->get()
         ]);
+
+    }
+
+    public function edit(Request $request, $id)
+    {
 
     }
 
     public function getLatestNews($count = 6)
     {
+        //TODO новостей нет - вывожу последние статьи
         $Article = new Article();
-        //DB::connection()->enableQueryLog();
         return $Article->latest()->limit($count)->get();
+    }
 
-        //dd(DB::getQueryLog());
+    public function like(Request $request, $articleId)
+    {
+        $likeInstance = new LikesController();
+        $likeInstance->Like($articleId, Auth::id());
+
+        return redirect('/article/' . $articleId);
     }
 
 

@@ -15,8 +15,8 @@
                             href="{{ url('articles/category') }}/{{ $category->id }}">{{ $category->articles_count }}
                             )</a></div>
                     <div class="col-md-2">
-                        <a href="{{ url('category') }}/{{ $category->id }}" class="btn">Изменить</a>
-                        <a href="{{ url('category') }}/{{ $category->id }}" class="btn">Удалить</a>
+                        <a href="{{ url('category/edit') }}/{{ $category->id }}" class="btn">Изменить</a>
+                        <a href="{{ url('category/delete') }}/{{ $category->id }}" class="btn">Удалить</a>
                     </div>
                 </div>
             @endforeach

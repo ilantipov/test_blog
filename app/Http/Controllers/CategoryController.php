@@ -12,7 +12,7 @@ class CategoryController extends Controller
     public function create(Request $request)
     {
         $this->middleware('auth');
-        return view('categories.create');
+        return view('layouts.categories.create');
     }
 
     public function store(Request $request)
@@ -23,7 +23,7 @@ class CategoryController extends Controller
         ]);
 
         if(Category::where('name', $request->name)->first()){
-            return view('categories.create')->withErrors(["error"=>"Такая категория уже существует!"]);
+            return view('layouts.categories.create')->withErrors(["error"=>"Такая категория уже существует!"]);
         }
             ;
         $tag = new Category();
@@ -41,7 +41,7 @@ class CategoryController extends Controller
     }
     public function index(Request $request)
     {
-        return view('categories.index', [
+        return view('layouts.categories.index', [
             'categories' => $this->getCategoryArticlesWithTotals()
         ]);
     }
@@ -51,9 +51,10 @@ class CategoryController extends Controller
         return view('dummy.index');
     }
 
-    public function destroy(Request $request)
+    public function delete(Request $request, $id)
     {
-        return view('dummy.index');
+        Category::findOrFail($id)->delete();
+        return redirect('/categories/');
     }
 
 

@@ -15,7 +15,17 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->text('body');
+            $table->timestamp('moderated_at')->nullable();
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->bigInteger('article_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+
+            $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->index(['article_id', 'created_at']);
         });
     }
 

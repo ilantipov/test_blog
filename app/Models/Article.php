@@ -14,6 +14,14 @@ class Article extends Model
 
     protected $fillable = ['name', 'name_short', 'preview_id', 'body'];
 
+
+    public function comments()
+    {
+
+        return $this->hasMany('App\Models\Comment','article_id');
+
+    }
+
     public function categories()
     {
         return $this->belongsToMany(
@@ -26,9 +34,20 @@ class Article extends Model
     public function tags()
     {
         return $this->belongsToMany(
-            Category::class,
+            Tag::class,
             'article_tag',
             'article_id',
             'tag_id');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+
+    public function likes()
+    {
+        
+    }
+
 }

@@ -21,14 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e41435aa-f858-497b-be22-e35e31900227" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ArticleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ArticlePreviewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ArticlePreviewController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_24_190344_create_articles_likes.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_24_190344_create_articles_likes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_25_201007_article_published_at.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_25_201007_article_published_at.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/summernote_editor_settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/summernote_editor_settings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/articles/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/articles/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/articles/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/articles/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +238,7 @@
       <option name="presentableId" value="Default" />
       <updated>1603217101892</updated>
       <workItem from="1603217102974" duration="126023000" />
-      <workItem from="1603608247942" duration="43867000" />
+      <workItem from="1603608247942" duration="46073000" />
     </task>
     <servers />
   </component>
@@ -348,10 +341,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="512" y="249" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603661196257" />
-    <state x="667" y="52" width="585" height="936" key="find.popup" timestamp="1603714394208">
+    <state x="667" y="52" width="585" height="936" key="find.popup" timestamp="1603738286645">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="52" width="585" height="936" key="find.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603714394208" />
+    <state x="667" y="52" width="585" height="936" key="find.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603738286645" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -360,9 +353,6 @@
         <watch expression="$currentTag" />
         <watch expression="$articleObject" />
         <watch expression="$request-&gt;id" />
-        <watch expression="$request-&gt;preview_old" language="PHP" />
-        <watch expression="$request-&gt;preview" language="PHP" />
-        <watch expression="$ArticlePreviewController-&gt;previewExists($request-&gt;preview_old)" />
       </configuration>
     </watches-manager>
   </component>

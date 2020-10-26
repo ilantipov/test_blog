@@ -174,7 +174,7 @@ class ArticleController extends Controller
 
         $articleInstance = $Article->findOrFail($id);
 
-        //$articleInstance->increment('viewed');
+        $articleInstance->increment('viewed');
 
         return view('layouts.articles.view', [
             'articles' => $articleInstance->where('id','=', $id)->with('categories', 'tags', 'user')->get(),

@@ -35,6 +35,13 @@
                     <p class="card-text"><small class="text-muted">{{$article->created_at}} автор: <a
                                 href="{{ url('/articles/user/') }}/{{$article->user_id}}">{{ $article->user->name}}</a></small>
                     </p>
+                    @if($article->categories->count()>0)
+                    <p>@foreach ($article->categories->all() as $category)
+                            <a href="{{ url('articles/category') }}/{{ $category->id }}" class="card-link small">{{$category->name}}</a>
+                        @endforeach
+                    </p>
+                    @endif
+                    
                     @if($article->tags->count()>0)
                         <p>
                             @endif

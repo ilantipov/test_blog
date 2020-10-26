@@ -16,7 +16,7 @@ class ArticlePublishedAt extends Migration
         Schema::table('articles', function (Blueprint $table) {
             $table->timestamp('published_at')->nullable();
 
-            $table->index(['deleted_at','published_at','created_at']);
+            $table->index(['deleted_at','published_at','created_at'], 'idx_deleted_published_created');
 
         });
     }
@@ -28,6 +28,9 @@ class ArticlePublishedAt extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('articles', function (Blueprint $table) {
+            $table->dropIndex('idx_deleted_published_created');
+            $table->dropColumn(['published_at']);
+        });//
     }
 }

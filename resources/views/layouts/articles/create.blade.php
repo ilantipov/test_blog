@@ -6,6 +6,7 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <h3>Создание публикации</h3>
     <form action="{{ url('article') }}" method="POST" class="form-horizontal" enctype='multipart/form-data'>
+        @isset($article) <input type="hidden" name="id" value="{{ $article->id }}">@endisset
         {!! csrf_field() !!}
         <div class="form-group row">
             <lebel for="article_title" class="col-md-2">Заголовок статьи</lebel>
@@ -27,6 +28,7 @@
             <label for="preview" class="col-md-2">Выберите превью</label>
             <div class="col-md-10">
                 <input type="file" class="form-control-file" name="preview" id="preview">
+                <input type="hidden" name="preview_old" value="@isset($article){{ $article->preview }}@endisset" id="preview_old">
             </div>
 
         </div>
@@ -60,11 +62,11 @@
                 <lebel for="tags">Теги</lebel>
             </div>
             <div class="col-md-10">
-                <input type="text" name="tags" class="form-control" id="tags" placeholder="Введите теги через запятую">
-                {{ $article->tags->implode('name', ', ') }}
+                <input type="text" name="tags" class="form-control" id="tags" value="@isset($article){{ $article->tags->implode('name', ', ') }}@endisset" placeholder="Введите теги через запятую">
+
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Создать статью</button>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
     </form>
 @endsection

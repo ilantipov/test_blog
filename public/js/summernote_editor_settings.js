@@ -62,8 +62,8 @@ $(document).ready(function () {
                         for (var i = 0; i < images['url'].length; i++) {
 
                             editor.summernote('insertImage', '/' + images['url'][i], function ($image) {
-//$image.css('width', $image.width() / 3);
-//$image.attr('data-filename', 'retriever')
+                                $image.addClass('img-thumbnail');
+                                //$image.attr('data-filename', 'retriever')
                             });
                         }
                     }

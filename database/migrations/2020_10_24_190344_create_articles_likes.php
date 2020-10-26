@@ -33,6 +33,6 @@ class CreateArticlesLikes extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles_likes');
+        Schema::dropIfExists('likes');
     }
 }

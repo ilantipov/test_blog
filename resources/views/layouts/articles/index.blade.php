@@ -29,8 +29,6 @@
                            <a href="{{ url('articles/category') }}/{{ $category->id }}" class="card-link small">{{$category->name}}</a>
                         @endforeach
                         </p>
-
-
                     </div>
                     <div class="card-footer"><small>{{ $article->created_at}} Автор: {{ $article->user->name}}</small>
                         <div style="float: right">

@@ -102,7 +102,7 @@ class ArticleController extends Controller
             'articles' => $Articles->with('categories', 'tags', 'user')
                 ->orderBy('articles.created_at', 'desc')
                 ->whereNotNull('articles.published_at')
-                ->paginate(5),
+                ->paginate(4),
             'news' => $this->getLatestNews()
         ]);
     }
@@ -122,21 +122,36 @@ class ArticleController extends Controller
             'name' => 'required|max:255',
             'name_short' => 'required|max:100',
             'body' => 'required|max:5000',
-            'preview' => 'image|required|max:10240'
+            //'preview' => 'image|required|max:10240'
 
         ]);
 
 
         $Article = new Article();
+        $ArticlePreviewController = new ArticlePreviewController();
+
+        if($request->id){
+            $Article = $Article->find($request->id);
+        }
+
         $Article->name = $request->name;
         $Article->name_short = $request->name_short;
-        $Article->preview = $request->preview;
+
+        if(empty($request->preview) && !empty($request->preview_old) && $ArticlePreviewController->previewExists($request->preview_old)){
+            $Article->preview = $request->preview_old;
+        }
+        else{
+            if(!empty($request->preview)){
+                $Article->preview = $ArticlePreviewController->update($request);
+            }
+            else{
+                $Article->preview = '';
+            }
+
+        }
+
         $Article->body = $request->body;
         $Article->user_id = Auth::id();
-
-
-        $ArticlePreviewController = new ArticlePreviewController();
-        $Article->preview = $ArticlePreviewController->update($request);
 
         $Article->save();
 

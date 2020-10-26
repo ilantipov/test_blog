@@ -87,8 +87,8 @@
                         </li>
                         <li class="nav-item">
                             @if (!Auth::check())
-                                <form method="POST" action="{{ route('login') }}" class="form-inline">
-                                    @csrf
+                                <form method="POST" action="{{ url('/login') }}" class="form-inline">
+                                    {!! csrf_field() !!}
                                     <div class="form-group mb-2">
                                         <input type="text" class="form-control"  type="email" name="email" placeholder="email@example.com">
                                     </div>

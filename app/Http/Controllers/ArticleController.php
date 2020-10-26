@@ -29,7 +29,7 @@ class ArticleController extends Controller
         return view('layouts.articles.index', [
             'articles' => $Articles->whereHas('categories', function ($q) use ($categoryId) {
                 $q->where('categories.id', '=', $categoryId);
-            })->with('user', 'tags')
+            })->with('user', 'tags', 'categories')
                 ->whereNotNull('published_at')
                 ->paginate(5),
             'news' => $this->getLatestNews()

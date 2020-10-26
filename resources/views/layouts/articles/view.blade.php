@@ -41,7 +41,7 @@
                         @endforeach
                     </p>
                     @endif
-                    
+
                     @if($article->tags->count()>0)
                         <p>
                             @endif

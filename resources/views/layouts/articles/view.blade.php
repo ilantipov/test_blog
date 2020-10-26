@@ -40,7 +40,7 @@
                             @endif
                             @foreach ($article->tags->all() as $tags)
                                 <small>{{$tags->name}}</small>
-                                @if(!$tags->last){{$tags->remaining}}!@endif
+                                @if(!$tags->last){{$tags->remaining}}@endif
                         @endforeach
                         @if($article->tags->count()>0)
                             <p>

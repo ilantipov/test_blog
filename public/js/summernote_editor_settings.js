@@ -92,7 +92,7 @@ $(document).ready(function () {
             $.ajax({
                 data: data,
                 type: "POST",
-                url: "/public/uploader/delete",
+                url: "/uploader/delete",
                 cache: false,
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 contentType: false,

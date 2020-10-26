@@ -21,6 +21,7 @@ class CreateArticlesTable extends Migration
             $table->string("preview");
             $table->integer("viewed")->unsigned()->default(0);
             $table->bigInteger('user_id')->unsigned();
+            $table->integer("likes")->unsigned()->default(0);
             $table->timestamps();
             $table->softDeletes();
 

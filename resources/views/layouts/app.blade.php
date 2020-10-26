@@ -79,9 +79,11 @@
                                 Категории
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                @foreach ($nav_categories->all() as $category)
-                                <a class="dropdown-item" href="{{url('/articles/category')}}/{{$category->id}}">{{$category->name}}</a>
-                                @endforeach
+                                @isset($nav_categories)
+                                    @foreach ($nav_categories->all() as $category)
+                                    <a class="dropdown-item" href="{{url('/articles/category')}}/{{$category->id}}">{{$category->name}}</a>
+                                    @endforeach
+                                @endisset
                             </div>
 
                         </li>

@@ -25,6 +25,6 @@ class CategoryServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::share('nav_categories', Category::all());
+        //View::share('nav_categories', Category::all());
     }
 }

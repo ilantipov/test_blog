@@ -47,7 +47,7 @@ $(document).ready(function () {
             $.ajax({
                 data: data,
                 type: "POST",
-                url: "/public/uploader/upload",
+                url: "/uploader/upload",
                 cache: false,
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 contentType: false,

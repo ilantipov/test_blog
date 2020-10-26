@@ -17,8 +17,9 @@
                 @endif
                 <div class="card">
                     <div class="card-header">{{ $article->name}}</div>
-                    <img class="card-img-top" src="{{ $article->preview }}" alt="Превью статьи" style="max-height: 75px">
-
+                    <div>
+                        <img class="img-thumbnail" src="/{{ $article->preview }}" alt="Превью статьи" style="max-height: 75px">
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">{{ $article->name_short }}</h5>
                         <p class="card-text">{!! $article->body !!}</p>

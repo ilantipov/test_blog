@@ -10,13 +10,17 @@
         <div class="form-group row">
             <lebel for="article_title" class="col-md-2">Заголовок статьи</lebel>
             <div class="col-md-10">
-            <input type="text" class="form-control" name="name" id="name" placeholder="Введите заголовок статьи">
+
+                <input type="text" class="form-control" name="name" id="name"
+                       @isset($article) value="{{$article->name}}" @endisset placeholder="Введите заголовок статьи">
             </div>
         </div>
         <div class="form-group row">
             <lebel for="article_title_sub" class="col-md-2">Подзаголовок статьи</lebel>
             <div class="col-md-10">
-                <input type="text" class="form-control" name="name_short"  id="name_short" placeholder="Введите подзаголовок статьи">
+                <input type="text" class="form-control" name="name_short" id="name_short"
+                       @isset($article) value="{{$article->name_short}} @endisset"placeholder="Введите
+                подзаголовок статьи">
             </div>
         </div>
         <div class="form-group row">
@@ -29,31 +33,38 @@
         <div class="form-group row">
             <lebel for="body" class="col-md-2">Текст статьи</lebel>
             <div class="col-md-10">
-            <textarea class="form-control" name="body" id="body" placeholder="Текст"> </textarea>
+                <textarea class="form-control" name="body" id="body" placeholder="Текст">@isset($article) {!! $article->body  !!}@endisset </textarea>
             </div>
-            <script>
-
-            </script>
         </div>
         <div class="form-group row">
             <lebel for="category" class="col-md-2">Категория</lebel>
             <div class="col-md-10">
-            <select class="form-control" name="categories[]" id="categories" multiple="multiple">
-                @foreach ($categories->all() as $category)
-                    <option id="{{ $category->id }}" value="{{ $category->id }}">{{ $category->name }}</option>
-                @endforeach
-            </select>
+                <select class="form-control" name="categories[]" id="categories" multiple="multiple">
+                    @foreach ($categories->all() as $category)
+                        <option id="{{ $category->id }}" value="{{ $category->id }}"
+                                @isset($article)
+                                    @foreach($article->categories as $filledCategories)
+                                    @if($category->id = $filledCategories)
+                                    selected="selected"
+                                    @endif
+                                    @endforeach
+                                @endisset
+
+                        >{{ $category->name }}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
         <div class="form-group row">
             <div class="col-md-2">
-            <lebel for="tags">Теги</lebel>
+                <lebel for="tags">Теги</lebel>
             </div>
             <div class="col-md-10">
-            <input type="text" name="tags" class="form-control" id="tags" placeholder="Введите теги через запятую">
+                <input type="text" name="tags" class="form-control" id="tags" placeholder="Введите теги через запятую">
+                {{ $article->tags->implode('name', ', ') }}
             </div>
         </div>
 
-  <button type="submit" class="btn btn-primary">Создать статью</button>
-</form>
+        <button type="submit" class="btn btn-primary">Создать статью</button>
+    </form>
 @endsection

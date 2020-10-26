@@ -11,6 +11,7 @@ class Category extends Model
     use HasFactory;
     use SoftDeletes;
     protected $fillable = ['name'];
+    protected $primaryKey = 'id';
 
     public function articles()
     {

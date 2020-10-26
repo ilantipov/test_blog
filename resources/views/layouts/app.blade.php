@@ -100,14 +100,19 @@
                                         <span class="ml-2 text-sm text-gray-600">запомнить</span>
                                     </div>
                                     <button type="submit" class="btn btn-primary mb-2">Войти</button>
-                                    @if (Route::has('password.request'))
-                                        <div>
-                                        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                                            Забыли пароль?
-                                        </a>
-                                        </div>
-                                    @endif
                                 </form>
+                                @if (Route::has('password.request'))
+                                <li class="nav-item link">
+                                    <a class="nav-link" href="{{ route('password.request') }}">
+                                        Забыли пароль?
+                                    </a>
+                                </li>
+                                @endif
+                                <li class="nav-item link">
+                                    <a class="nav-link" href="{{ route('register') }}">
+                                        Зарегистрирваться
+                                    </a>
+                                </li>
                             @endif
                     </ul>
                     <form class="form-inline my-2 my-lg-0" action="{{ url('dummy') }}">
@@ -128,7 +133,7 @@
                         Статьи
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ url('articles') }}">Просмотр статей</a>
+                        <a class="dropdown-item" href="{{ url('articles/admin') }}">Просмотр статей</a>
                         <a class="dropdown-item" href="{{ url('article') }}">Добавить статью</a>
                     </div>
                 </li>

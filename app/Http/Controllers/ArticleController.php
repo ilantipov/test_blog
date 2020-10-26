@@ -30,7 +30,7 @@ class ArticleController extends Controller
             'articles' => $Articles->whereHas('categories', function ($q) use ($categoryId) {
                 $q->where('categories.id', '=', $categoryId);
             })->with('user', 'tags')
-                ->whereNotNull('sent_at')
+                ->whereNotNull('published_at')
                 ->paginate(5),
             'news' => $this->getLatestNews()
 
@@ -48,7 +48,7 @@ class ArticleController extends Controller
             'articles' => $Articles->whereHas('user', function ($q) use ($userId) {
                 $q->where('users.id', '=', $userId);
             })->with('categories', 'tags')
-                ->whereNotNull('sent_at')
+                ->whereNotNull('published_at')
                 ->paginate(5),
             'news' => $this->getLatestNews()
 
@@ -98,17 +98,18 @@ class ArticleController extends Controller
     {
         $Articles = new Article();
 
-        return view('layouts.articles.indexAdmin', [
+        return view('layouts.articles.index', [
             'articles' => $Articles->with('categories', 'tags', 'user')
                 ->orderBy('articles.created_at', 'desc')
                 ->whereNotNull('articles.published_at')
                 ->paginate(5),
+            'news' => $this->getLatestNews()
         ]);
     }
 
+
     public function create(Request $request)
     {
-        $this->middleware('auth');
         return view('layouts.articles.create', [
             'categories' => Category::all()->sortBy('name'),
         ]);
@@ -155,12 +156,14 @@ class ArticleController extends Controller
     public function view(Request $request, $id)
     {
         $Article = new Article();
+
         $articleInstance = $Article->findOrFail($id);
 
-        $articleInstance->increment('viewed');
+        //$articleInstance->increment('viewed');
 
         return view('layouts.articles.view', [
-            'articles' => $articleInstance->where('id', '=', $id)->with('categories', 'tags', 'user')->get(),
+            'articles' => $articleInstance->where('id','=', $id)->with('categories', 'tags', 'user')->get(),
+                //->with('categories', 'tags', 'user')->get()->dd(),
             'news' => $this->getLatestNews(),
             'comments' => $articleInstance->comments()->whereNotNull('moderated_at')->get()
         ]);
@@ -169,7 +172,13 @@ class ArticleController extends Controller
 
     public function edit(Request $request, $id)
     {
+        $articleInstance = new Article;
+        Article::withTrashed()->findOrFail($id);
 
+        //dd($articleInstance->withTrashed()->where('id','=',$id)->with('categories', 'tags', 'user')->first());
+        return view('layouts.articles.create', [
+            'categories' => Category::all()->sortBy('name'),
+        ])->with('article',$articleInstance->withTrashed()->where('id','=',$id)->with('categories', 'tags', 'user')->first());
     }
 
     public function getLatestNews($count = 6)

@@ -4,6 +4,7 @@
 @section('content')
     <a href="{{ url('categories') }}" class="nav-link">Вернуться к списку категорий</a>
     <h3>Создание категории</h3>
+
     <form action="{{ url('category') }}" method="POST" class="form-horizontal">
         {!! csrf_field() !!}
         @isset($category)
@@ -11,9 +12,9 @@
         @endisset
         <div class="form-group row">
             <div class="col-md-3">
-                <input type="text" class="form-control" id="name" name="name" placeholder="Введите название категории">
+                <input type="text" class="form-control" id="name" name="name" @isset($category) value="{{$category->name}}" @endisset placeholder="Введите название категории">
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Создать категорию</button>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
     </form>
 @endsection

@@ -8,8 +8,8 @@
 
                         <div class="card-body">
                             <h5 class="card-title">{{ $news_item->name_short }}</h5>
-                            <img class="card-img-top" src="{{ $news_item->preview }}" alt="Превью стати">
-                            <p class="card-text" style="max-height: 75px">{{ url($news_item->preview) }}</p>
+                            <img class="card-img-top" src="/{{ $news_item->preview }}" alt="Превью статьи">
+
                             <a href="{{ url('article') }}/{{ $news_item->id }}" class="card-link">подробнее..</a>
                         </div>
                         <div class="card-footer"><small>{{ $news_item->created_at}}</small>

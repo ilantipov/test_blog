@@ -13,7 +13,10 @@ class ArticlePreviewController extends Controller
             if(empty($request->file('preview'))){
                throw new FormSizeFileException('Пытался сохранить отсутствующий файл');
             }
-            return $request->file('preview')->store('images/articles/previews');
+            if(!$request->file('preview')->isValid()){
+                throw new FormSizeFileException('Неправильный файл');
+            }
+            return $request->file('preview')->store('images/articles/previews/');
 
         }
 }

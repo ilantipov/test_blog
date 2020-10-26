@@ -20,8 +20,12 @@ class ArtictesBodyImageUploadController extends Controller
         if(empty($request->file('files'))){
             throw new FormSizeFileException('Пытался сохранить отсутствующий файл');
         }
+
         $result = [];
         foreach ($request->file('files')  as $file){
+            if(!$file->isValid()){
+                throw new FormSizeFileException('Неправильный формат файла');
+            }
             $result['url'][] = $file->store($this->getStorageDirectory());
         }
         return response()->json($result, 200);

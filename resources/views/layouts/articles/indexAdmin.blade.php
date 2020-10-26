@@ -41,7 +41,7 @@
                     </td>
                     <td>{{ $article->created_at}}</td>
                     <td>{{ $article->viewed}}/{{ $article->likes}}</td>
-                    <td>@if($article->moderated_at)
+                    <td>@if($article->published_at)
                             Опубликовано
                         @else
                             Снято с публикации
@@ -51,10 +51,10 @@
                             <a href="{{ url('article') }}/{{ $article->id}}">Просмотреть</a>
                             <a href="{{ url('article/edit') }}/{{ $article->id}}">Редактировать</a>
                             <a href="{{ url('article/switchPublishedState') }}/{{ $article->id}}">
-                                @if($article->moderated_at)
+                                @if($article->published_at)
                                     Снять с публикации
                                 @else
-                                    Опубликова
+                                    Опубликовать
                                 @endif
                             </a>
                             <a href="{{ url('article/switchTrashedState') }}/{{ $article->id}}">

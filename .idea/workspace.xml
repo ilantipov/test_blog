@@ -20,7 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e41435aa-f858-497b-be22-e35e31900227" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ArticleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +238,7 @@
       <option name="presentableId" value="Default" />
       <updated>1603217101892</updated>
       <workItem from="1603217102974" duration="126023000" />
-      <workItem from="1603608247942" duration="51128000" />
+      <workItem from="1603608247942" duration="51778000" />
     </task>
     <servers />
   </component>
@@ -340,10 +341,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="512" y="249" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603661196257" />
-    <state x="667" y="52" width="585" height="936" key="find.popup" timestamp="1603738286645">
+    <state x="667" y="52" width="585" height="936" key="find.popup" timestamp="1603776308141">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="52" width="585" height="936" key="find.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603738286645" />
+    <state x="667" y="52" width="585" height="936" key="find.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1603776308141" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
